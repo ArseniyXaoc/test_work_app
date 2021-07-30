@@ -25,6 +25,27 @@
     &-text {
         font-size: 14px;
     }
+}
 
+.button {
+    background-color: rgb(56, 55, 55);
+    border: none;
+    color: white;
+    ;
+    padding: 15px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    box-shadow: 0 1px #666;
+    &:hover {
+        background-color: rgb(109, 109, 109);
+
+    }
+
+    &:active {
+        background-color: rgb(56, 55, 55);
+        box-shadow: 0 0px #666;
+        transform: translateY(1px);
+    }
 
 }
