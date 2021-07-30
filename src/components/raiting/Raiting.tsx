@@ -23,7 +23,6 @@ function Raiting({ raiting_number, size_of_grade }: IRaiting) {
             </div>
             <div className='raiting-text'>На основе <b>{size_of_grade}</b> оценок</div>
         </section>
-
     )
 }
 
