@@ -1,0 +1,29 @@
+.raiting {
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+
+    &-wrapper {
+        display: flex;
+    }
+
+    &-digits {
+        font-size: 48px;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+
+    &-stars {
+        display: flex;
+        list-style-type: none;
+        align-self: flex-end;
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    &-text {
+        font-size: 14px;
+    }
+
+
+}
