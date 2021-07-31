@@ -1,7 +1,5 @@
-import React from "react";
 import { RAITING_MUX } from "../../CONSTANTS";
 import './Raiting.scss';
-
 
 interface IRaiting {
     raiting_number: number;

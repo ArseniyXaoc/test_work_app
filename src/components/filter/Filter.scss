@@ -1,0 +1,19 @@
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    &-button {
+        background-color: rgb(231, 231, 231);
+        border: none;
+        color: rgb(0, 0, 0);
+        padding: 15px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.5s;
+        box-shadow: 0 1px #666;
+        margin-left: 10px;
+
+        &:hover {
+            background-color: rgb(109, 109, 109);
+        }
+    }
+}
