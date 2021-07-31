@@ -3,6 +3,7 @@ import { WRAPPER } from '../CONSTANTS';
 import './App.scss';
 import Raiting from './raiting/Raiting';
 import Filter from './filter/Filter'
+import Options from './options/Options';
 
 function App() {
   return (
@@ -15,8 +16,11 @@ function App() {
           </div>
         </header>
         <main>
-          <div style={WRAPPER}>
+          <div>
             <Filter filter_theme = {['1asdas','2fasf','3asg','4asg']}/>
+          </div>
+          <div>
+            <Options/>
           </div>
         </main>
       </div>

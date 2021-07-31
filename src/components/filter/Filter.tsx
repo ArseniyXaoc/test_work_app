@@ -8,7 +8,7 @@ interface IFilter {
 
 function Filter({ filter_theme }: IFilter) {
     return (
-        <div style={WRAPPER}>
+        <div>
             <h3>Отзывы в которых упоминается:</h3>
             <div className='filter'>
                 {filter_theme.map(item => {
