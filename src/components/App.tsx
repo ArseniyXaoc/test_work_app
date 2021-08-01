@@ -8,9 +8,6 @@ import Rewiev from './rewiev/Rewiev';
 
 
 function App() {
-
-  
-
   return (
     <div className="App">
       <div style={WRAPPER}>
