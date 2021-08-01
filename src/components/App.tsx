@@ -4,6 +4,8 @@ import './App.scss';
 import Raiting from './raiting/Raiting';
 import Filter from './filter/Filter'
 import Options from './options/Options';
+import Rewiev from './rewiev/Rewiev';
+
 
 function App() {
   return (
@@ -21,6 +23,9 @@ function App() {
           </div>
           <div>
             <Options/>
+          </div>
+          <div>
+            <Rewiev/>
           </div>
         </main>
       </div>

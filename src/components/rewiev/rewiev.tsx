@@ -1,14 +1,14 @@
-import {Rewiev_Author} from './rewiev_component';
+import {RewievAuthor, RewievScore, RewievDetails,RewievText, RewievQuality,RewievLikeDislike,RewievAnswer} from './rewiev_component';
 function Rewiev(params: any) {
     return (
         <div>
-            <Rewiev_Author/>
-            {/* <Rewiev_Score/>
-            <Rewiev_Details/>
-            <Rewiev_Text/>
-            <Rewiev_Quality/>
-            <Rewiev_Like_Dislike/>
-            <Rewiev_Answer/> */}
+            <RewievAuthor/>
+            <RewievScore/>
+            <RewievDetails/>
+            <RewievText/>
+            <RewievQuality/>
+            <RewievLikeDislike/>
+            <RewievAnswer/>
         </div>
     )
 }
