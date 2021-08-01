@@ -5,5 +5,7 @@
    import RewievQuality from  './RewievQuality'
    import RewievLikeDislike from  './RewievLikeDislike'
    import RewievAnswer from  './RewievAnswer'
+   import RewievPhotos from './RewievPhotos'
+   import RewievCreateAnswer from './RewievCreateAnswer'
 
-   export {RewievAuthor, RewievScore, RewievDetails,RewievText, RewievQuality,RewievLikeDislike,RewievAnswer};
+   export {RewievAuthor, RewievScore, RewievDetails,RewievText, RewievQuality,RewievLikeDislike,RewievAnswer, RewievPhotos, RewievCreateAnswer};

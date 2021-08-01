@@ -1,5 +1,6 @@
 import { RAITING_MUX } from "../../CONSTANTS";
 import './Raiting.scss';
+import reitingToStar from '../../utils/raitingToStar'
 
 interface IRaiting {
     raiting_number: number;
@@ -7,16 +8,13 @@ interface IRaiting {
 }
 
 function Raiting({ raiting_number, size_of_grade }: IRaiting) {
-    const roundNumber = Math.round(raiting_number);
-    const starsFill = new Array(roundNumber).fill('★');
-    const starsEmpty = new Array(RAITING_MUX - roundNumber).fill('☆');
+    const star = reitingToStar(raiting_number, size_of_grade);
     return (
         <section className='raiting'>
             <div className='raiting-wrapper'>
                 <div className='raiting-digits'>{raiting_number}</div>
                 <div className='raiting-stars'>
-                    {starsFill.map((item, index) => <li key={index}>{item}</li>)}
-                    {starsEmpty.map((item, index) => <li key={index + roundNumber}>{item}</li>)}
+                    {star.map((item, index) => <li key={index}>{item}</li>)}
                 </div>
             </div>
             <div className='raiting-text'>На основе <b>{size_of_grade}</b> оценок</div>

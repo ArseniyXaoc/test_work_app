@@ -1,5 +1,6 @@
+import './RewievQuality.scss'
 
-function Rewiev_Author(params:any) {
+function RewievQuality(params:any) {
     return (
         <div>
             Quality
@@ -7,4 +8,4 @@ function Rewiev_Author(params:any) {
     )
 }
 
-export default Rewiev_Author;
+export default RewievQuality;

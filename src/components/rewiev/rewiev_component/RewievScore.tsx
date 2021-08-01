@@ -1,10 +1,20 @@
+import './RewievScore.scss'
+import reitingToStar from '../../../utils/raitingToStar'
+import {RAITING_MUX} from '../../../CONSTANTS'
 
-function Rewiev_Author(params:any) {
+interface IRewievScore {
+    score: number
+    experienceOfUse: number
+}
+
+function RewievScore({ score, experienceOfUse }: IRewievScore) {
+    const star = reitingToStar(score, RAITING_MUX)
     return (
         <div>
-            Score
+            Score <ul>{star.map((item, index) => <li key={index}>{item}</li>)}</ul>
+            <p>Опыт использования {experienceOfUse} месяцев</p>
         </div>
     )
 }
 
-export default Rewiev_Author;
+export default RewievScore;

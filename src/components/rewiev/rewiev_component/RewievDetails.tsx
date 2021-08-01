@@ -1,5 +1,6 @@
+import './RewievDetails.scss'
 
-function Rewiev_Author(params:any) {
+function RewievDetails(params:any) {
     return (
         <div>
             Details
@@ -7,4 +8,4 @@ function Rewiev_Author(params:any) {
     )
 }
 
-export default Rewiev_Author;
+export default RewievDetails;

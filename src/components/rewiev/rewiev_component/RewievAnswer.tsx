@@ -1,5 +1,5 @@
-
-function Rewiev_Author(params:any) {
+import './RewievAnswer.scss'
+function RewievAnswer(params:any) {
     return (
         <div>
             Answer
@@ -7,4 +7,4 @@ function Rewiev_Author(params:any) {
     )
 }
 
-export default Rewiev_Author;
+export default RewievAnswer;

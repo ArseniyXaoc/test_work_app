@@ -1,5 +1,6 @@
+import './RewievLikeDislike.scss'
 
-function Rewiev_Author(params:any) {
+function RewievLikeDislike(params:any) {
     return (
         <div>
             Like_Dislike
@@ -7,4 +8,4 @@ function Rewiev_Author(params:any) {
     )
 }
 
-export default Rewiev_Author;
+export default RewievLikeDislike;
