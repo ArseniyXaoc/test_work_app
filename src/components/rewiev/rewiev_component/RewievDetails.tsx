@@ -12,7 +12,6 @@ function RewievDetails({
 }: {
   datails: IRewievDetails[];
 }) {
-  console.log(datails);
   if (datails) {
     return (
       <div>

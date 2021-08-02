@@ -1,18 +1,30 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './Options.scss'
-function Options() {
+function Options({ filterFunction }: { filterFunction: (page:string | undefined, sort: string) => void }) {
 
-    const [selectValue, setSelectValue] = useState('useful');
+    const stateRef = useRef('');
+    const [selectValue, setSelectValue] = useState('helpfulness%3Adesc');
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handler = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
+        stateRef.current = event.target.value;
+        setSelectValue(event.target.value);
+        console.log(stateRef.current);
+        setIsLoading(true);
+        filterFunction(undefined, stateRef.current);
+    }, [selectValue])
+
+
     return (
         <div>
             <form className='form' action="">
                 <p className='form-wrap'>
-                    <select className='form-select' value={selectValue} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setSelectValue(event.target.value)}>
-                        <option value="useful">полезные</option>
-                        <option value="new">новые</option>
-                        <option selected value="old">старые</option>
-                        <option selected value="hight">с высокой оценкой</option>
-                        <option selected value="low">с низкой оценкой</option>
+                    <select className='form-select' value={selectValue} onChange={handler}>
+                        <option value="helpfulness%3Adesc">полезные</option>
+                        <option value="created_at%3Adesc">новые</option>
+                        <option selected value="created_at%3Aasc">старые</option>
+                        <option selected value="rating%3Adesc">с высокой оценкой</option>
+                        <option selected value="rating%3Aasc">с низкой оценкой</option>
                     </select></p>
             </form>
         </div>

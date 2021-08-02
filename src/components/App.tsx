@@ -23,10 +23,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  function getNewData () {
+  function getNewData(page: string | undefined, sort: string | undefined) {
     // rating:desc
     // rating:asc
-    getData().then(
+    getData(page, sort).then(
       (data) => {
         setProduct(data.product);
         setReview(data.reviews);
@@ -53,7 +53,7 @@ function App() {
         setError(error);
       }
     );
-  }, []);
+  }, [isLoading]);
 
   if (error) {
     return <div className="App">Ощибка: {error.message}</div>;
@@ -79,7 +79,7 @@ function App() {
           </header>
           <main>
             <div>
-              <Options />
+              <Options filterFunction={getNewData} />
             </div>
             <div>
               {review.map((data: any) => {
