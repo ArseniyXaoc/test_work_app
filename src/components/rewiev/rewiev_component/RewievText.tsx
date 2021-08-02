@@ -1,9 +1,9 @@
-import './RewievText.scss'
+import './rewiev.scss'
 
-function RewievText(params:any) {
+function RewievText({text}: {text: string}) {
     return (
         <div>
-            Text
+            {text}
         </div>
     )
 }

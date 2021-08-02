@@ -1,5 +1,6 @@
+import { parse } from 'dotenv';
 
-
+import x from '../qwe'
 
 class FetchingData {
     url: string;
@@ -20,23 +21,22 @@ class FetchingData {
 
     async getData(page: string, per_page: string) {
         try {
-            let response = await fetch(`${this.url}?
-            authentication_token=${this.authentication_token}&
-            context=${this.context}&
-            context_id=${this.context_id}&
-            theme_id=${this.theme_id}&
-            widget_id=${this.widget_id}`);
-
-            let body = await response.json();
-            return body;
+            // let response = await fetch(`${this.url}?authentication_token=${this.authentication_token}&context=${this.context}&context_id=${this.context_id}&theme_id=${this.theme_id}&widget_id=${this.widget_id}`);
+            // let body = await response.json();
+            // console.log(body);
+            return x;
         } catch (error) {
             throw new Error(error);
-
         }
-
     }
 
+    getProduct(data: any) {
+        return data.product;
+    }
 
+    getReview(data: any) {
+        return data.reviews;
+    }
 }
 
 export default FetchingData;

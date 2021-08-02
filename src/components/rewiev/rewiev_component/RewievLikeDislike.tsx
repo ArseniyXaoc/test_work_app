@@ -1,11 +1,18 @@
-import './RewievLikeDislike.scss'
+import "./rewiev.scss";
 
-function RewievLikeDislike(params:any) {
-    return (
-        <div>
-            Like_Dislike
-        </div>
-    )
+function RewievLikeDislike({
+  like,
+  dislike,
+}: {
+  like: number;
+  dislike: number;
+}) {
+  return (
+    <div>
+      <div>{like}</div>
+      <div>{dislike}</div>
+    </div>
+  );
 }
 
 export default RewievLikeDislike;

@@ -1,10 +1,15 @@
-import './RewievPhotos.scss'
+import "./rewiev.scss";
 
-function RewievPhotos(params:any) {
-    return (
-        <div>
-            RewievPhotos
-        </div>
+function RewievPhotos({ photos }: { photos: string[] }) {
+    if (photos.length !== 0){
+        return (
+        <div>{photos.map( data => {
+            return <a href={data}></a>
+        })}</div>
+    )
+    }
+    else return (
+        <div></div>
     )
 }
 

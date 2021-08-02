@@ -1,4 +1,4 @@
-import './RewievAnswer.scss'
+import './rewiev.scss'
 function RewievCreateAnswer(params:any) {
     return (
         <div>

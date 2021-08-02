@@ -1,18 +1,17 @@
-import './RewievScore.scss'
+import './rewiev.scss'
 import reitingToStar from '../../../utils/raitingToStar'
 import {RAITING_MUX} from '../../../CONSTANTS'
 
 interface IRewievScore {
     score: number
-    experienceOfUse: number
 }
 
-function RewievScore({ score, experienceOfUse }: IRewievScore) {
+function RewievScore({ score }: IRewievScore) {
     const star = reitingToStar(score, RAITING_MUX)
+    
     return (
         <div>
-            Score <ul>{star.map((item, index) => <li key={index}>{item}</li>)}</ul>
-            <p>Опыт использования {experienceOfUse} месяцев</p>
+            Score <ul style= {{display: 'flex', color: 'yellowgreen'}}>{star.map((item, index) => <li style= {{listStyleType: 'none'}} key={index}>{item}</li>)}</ul>
         </div>
     )
 }

@@ -1,10 +1,15 @@
+@use "sass:math";
+$mainText: #383737;
+
 .App {
   text-align: center;
   display: flex;
+  max-width: calc(100%-44px);
+  color: $mainText;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: $mainText;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
