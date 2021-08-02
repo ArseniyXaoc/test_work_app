@@ -81,7 +81,7 @@ function App() {
           </header>
           {/*  */}
           <main>
-            <div className='wrapper'><Slide photos = {product.review_photos}/></div>
+            <div className='wrapper1'><Slide photos = {product.review_photos}/></div>
             <div>
               <Options filterFunction={getNewData} />
             </div>
