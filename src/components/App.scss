@@ -8,7 +8,7 @@ $mainText: #383737;
   font: 'Arimo';
   text-align: center;
   display: flex;
-  max-width: calc(100%-44px);
+  max-width: 100%;
   color: $mainText;
 }
 
@@ -20,7 +20,7 @@ $mainText: #383737;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
@@ -41,8 +41,12 @@ $mainText: #383737;
 }
 
 .wrapper {
-  width: 100%;
+  width: 100vw;
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 950px;
   padding: 0 20px;
+}
+
+.image {
+  width: 50%;
 }

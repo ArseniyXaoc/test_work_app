@@ -3,7 +3,7 @@ import './Options.scss'
 function Options({ filterFunction }: { filterFunction: (page:string | undefined, sort: string) => void }) {
 
     const stateRef = useRef('');
-    const [selectValue, setSelectValue] = useState('helpfulness%3Adesc');
+    const [selectValue, setSelectValue] = useState('created_at%3Adesc');
     const [isLoading, setIsLoading] = useState(false);
 
     const handler = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
