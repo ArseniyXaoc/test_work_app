@@ -19,12 +19,13 @@ class FetchingData {
         this.widget_id = widget_id;
     }
 
-    async getData(page: string, per_page: string) {
+    async getData(page: string | undefined, sort: string | undefined) {
         try {
-            // let response = await fetch(`${this.url}?authentication_token=${this.authentication_token}&context=${this.context}&context_id=${this.context_id}&theme_id=${this.theme_id}&widget_id=${this.widget_id}`);
-            // let body = await response.json();
-            // console.log(body);
-            return x;
+            
+            let response = await fetch(`${this.url}?authentication_token=${this.authentication_token}&context=${this.context}&context_id=${this.context_id}&theme_id=${this.theme_id}&widget_id=${this.widget_id}${page ? `&page=${page}` : ''}${sort ? `&sort=${sort}` : ''}`);
+            let body = await response.json();
+            return body
+            // return x;
         } catch (error) {
             throw new Error(error);
         }

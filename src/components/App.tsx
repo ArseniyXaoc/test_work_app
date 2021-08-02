@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { WRAPPER } from "../CONSTANTS";
 import "./App.scss";
 import Raiting from "./raiting/Raiting";
@@ -7,11 +7,13 @@ import Options from "./options/Options";
 import Rewiev from "./rewiev/Rewiev";
 import getData from "./App.service";
 import { v4 as uuidv4 } from "uuid";
+import RaitingDatails from "./raiting/RaitingDatails";
 
 interface IProduct {
   rating: number;
   reviews_count: number;
-  [key: string]: number | string;
+  rating_details: [];
+  [key: string]: number | string | [];
 }
 
 function App() {
@@ -20,6 +22,23 @@ function App() {
   const [review, setReview] = useState<Array<{}>>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+
+  function getNewData () {
+    // rating:desc
+    // rating:asc
+    getData().then(
+      (data) => {
+        setProduct(data.product);
+        setReview(data.reviews);
+        setIsLoading(true);
+      },
+
+      (error) => {
+        setIsLoading(true);
+        setError(error);
+      }
+    );
+  }
 
   useEffect(() => {
     getData().then(
@@ -49,6 +68,9 @@ function App() {
               raiting_number={product.rating}
               size_of_grade={product.reviews_count}
             />
+            <RaitingDatails
+              raiting_number={product.rating_details}
+              size_of_grade={product.reviews_count} />
             <div className="button-wrapper">
               <button className="button" onClick={() => getData()}>
                 Написать отзыв
@@ -56,9 +78,6 @@ function App() {
             </div>
           </header>
           <main>
-            <div>
-              <Filter filter_theme={["1asdas", "2fasf", "3asg", "4asg"]} />
-            </div>
             <div>
               <Options />
             </div>
@@ -69,7 +88,7 @@ function App() {
                     key={uuidv4()}
                     name={data.author.name}
                     avatar={data.author.initials}
-                    avatar_url = {data.author.avatar_url}
+                    avatar_url={data.author.avatar_url}
                     score={data.rating}
                     location={data.author.location}
                     detailsOption={data.author.details}

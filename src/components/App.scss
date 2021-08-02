@@ -1,7 +1,11 @@
 @use "sass:math";
 $mainText: #383737;
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+
 .App {
+  font-family: 'Raleway', sans-serif;
+  font: 'Arimo';
   text-align: center;
   display: flex;
   max-width: calc(100%-44px);
@@ -27,6 +31,13 @@ $mainText: #383737;
   justify-content: space-between;
   display: flex;
   flex: 1 1;
+  margin-top: 50px;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+}
+
+  
 }
 
 .wrapper {
