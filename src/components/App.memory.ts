@@ -40,6 +40,10 @@ class FetchingData {
     getReview(data: any) {
         return data.reviews;
     }
+
+    getPages(data: any) {
+        return data.meta;
+    }
 }
 
 export default FetchingData;

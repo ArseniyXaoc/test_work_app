@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import "./Pagination.scss";
 
-function Pagination({ filterFunction, loading, selectValue, currentPage, setCurrentPage }: {
+function Pagination({ filterFunction, loading, selectValue, currentPage, setCurrentPage, pagesAll }: {
   filterFunction: (page: string | undefined, sort: string | undefined) => void,
   loading: React.Dispatch<React.SetStateAction<boolean>>,
   selectValue: string, 
   currentPage:number,
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>,
+  pagesAll: number
 }) {  
-  const totalPage = 20;
+  const totalPage = pagesAll;
   const showedPageNum = 5;
 
   function pageArr() {

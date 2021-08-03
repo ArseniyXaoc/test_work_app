@@ -21,12 +21,17 @@ async function getData(page?: string, sort?: string) {
     );
     const data = await fetchingData.getData(page, sort);
     console.log(data);
-    
+
     const product = fetchingData.getProduct(data);
     const reviews: Array<{}> = fetchingData.getReview(data);
-    return {product, reviews};
+    const pages: {
+      "current_page": number,
+      "total_pages": number,
+      "per_page": number
+    } = fetchingData.getPages(data);
+    return { product, reviews, pages };
   } catch (error) {
-      throw new Error(error);
+    throw new Error(error);
   }
 }
 

@@ -28,6 +28,7 @@ function App() {
   const [error, setError] = useState<Error | null>(null);
   const [form, setForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [pages, setPages] = useState(1);
 
   function getNewData(page: string | undefined, sort: string | undefined) {
     getData(page, sort).then(
@@ -53,6 +54,7 @@ function App() {
       (data) => {
         setProduct(data.product);
         setReview(data.reviews);
+        setPages(data.pages.total_pages);
         setIsLoading(true);
       },
 
@@ -122,7 +124,7 @@ function App() {
                 return <Review {...reviewSettings} />;
               })}
             </div>
-            <Pagination currentPage ={currentPage} setCurrentPage={setCurrentPage} filterFunction={getNewData} loading={setIsLoading} selectValue={selectValue} />
+            <Pagination pagesAll ={pages} currentPage ={currentPage} setCurrentPage={setCurrentPage} filterFunction={getNewData} loading={setIsLoading} selectValue={selectValue} />
           </main>
         </div>
       </div>
