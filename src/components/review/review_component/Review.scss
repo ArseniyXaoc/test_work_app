@@ -1,0 +1,143 @@
+$mainText: #383737;
+$secondText: rgb(121, 121, 121);
+;
+
+.review {
+    &-wrapper {
+        max-width: 950px;
+        margin: 0 auto;
+    }
+
+    &-score {
+        display: flex;
+        color: yellowgreen;
+        font-size: 20px;
+    }
+
+    &-head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-date {
+        font-weight: bold;
+        color: $secondText;
+    }
+
+    &-autor-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    &-details {
+        display: flex;
+        font-size: 14px;
+        
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &-text {
+        text-align: start;
+        padding-right: 40px;
+        margin-bottom: 30px;
+        background-color: rgba(223, 223, 223, 0.432);
+        border-radius: 20px;
+        padding: 10px;
+
+        @media (max-width: 768px) {
+            text-align: justify;
+        }
+    }
+}
+
+.details {
+    &-label {
+        color: $secondText
+    }
+
+    &-value {
+        font-weight: bold;
+    }
+
+    &-location {
+        display: flex;
+        font-size: 14px;
+    }
+}
+
+.main {
+    &-details {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.review-author {
+    display: flex;
+    align-items: center;
+
+    &-details {
+ 
+
+        li {
+            display: flex;
+            justify-content: space-between;
+
+            :nth-child(1) {
+                font-style: italic;
+                margin-right: 10px;
+            }
+        }
+
+        list-style-type: none;
+        text-align: start;
+        white-space: nowrap;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.author {
+    &-avatar {
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 7px 10px;
+        background-color: burlywood;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+}
+
+.icons {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    :hover {
+        background-color: rgba(190, 134, 134, 0.247);
+        border-radius: 5px;
+        cursor: pointer;
+        transform: translateY(-2px);
+    }
+    &-wrapper {
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+}
+
+.answer {
+    margin-top: 40px;
+    border: 2px solid $mainText;
+    border-radius: 5px;
+    &-main {
+        text-align: start;
+        margin: 10px;
+        font-size: 12px;
+    }
+}

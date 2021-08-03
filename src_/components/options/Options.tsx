@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import './Options.scss'
-function Options({ filterFunction, loading, setSelectValue, selectValue }: { filterFunction: (page: string | undefined, sort: string) => void, 
-    loading: React.Dispatch<React.SetStateAction<boolean>>,
-    setSelectValue: React.Dispatch<React.SetStateAction<string>>,
-    selectValue: string }) {
+function Options({ filterFunction }: { filterFunction: (page:string | undefined, sort: string) => void }) {
 
     const stateRef = useRef('');
+    const [selectValue, setSelectValue] = useState('created_at%3Adesc');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handler = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
         stateRef.current = event.target.value;
-        loading(false);
         setSelectValue(event.target.value);
+        console.log(stateRef.current);
+        setIsLoading(true);
         filterFunction(undefined, stateRef.current);
     }, [selectValue])
 

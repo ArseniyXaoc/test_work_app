@@ -1,32 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState, useEffect, useContext, useCallback } from "react";
+import { WRAPPER } from "../CONSTANTS";
 import "./App.scss";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
 import Raiting from "./raiting/Raiting";
+import Filter from "./filter/Filter";
 import Options from "./options/Options";
-import Review from "./review/Review";
+import Rewiev from "./rewiev/Rewiev";
 import getData from "./App.service";
+import { v4 as uuidv4 } from "uuid";
 import RaitingDatails from "./raiting/RaitingDatails";
-import Slide from "./slider/Slider";
-import Pagination from './pagination/Pagination'
+import Slide from './slider/Slider'
 
 interface IProduct {
   rating: number;
   reviews_count: number;
   rating_details: [];
-  review_photos: [];
+  review_photos: [],
   [key: string]: number | string | [];
 }
 
 function App() {
-  const [selectValue, setSelectValue] = useState('created_at%3Adesc');
+  const [data, setData] = useState();
   const [product, setProduct] = useState<IProduct>();
   const [review, setReview] = useState<Array<{}>>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
+
+
   function getNewData(page: string | undefined, sort: string | undefined) {
+    // rating:desc
+    // rating:asc
     getData(page, sort).then(
       (data) => {
         setProduct(data.product);
@@ -54,7 +59,7 @@ function App() {
         setError(error);
       }
     );
-  }, []);
+  }, [isLoading]);
 
   if (error) {
     return <div className="App">Ощибка: {error.message}</div>;
@@ -63,34 +68,27 @@ function App() {
   } else if (product !== undefined && review !== undefined) {
     return (
       <div className="App">
-        <div className="wrapper">
-
+        <div className='wrapper'>
           <header className="header">
-            <Raiting
-              raiting_number={product.rating}
-              size_of_grade={product.reviews_count}
-            />
-            <RaitingDatails
-              raiting_number={product.rating_details}
-              size_of_grade={product.reviews_count}
-            />
+            <Raiting raiting_number={product.rating} size_of_grade={product.reviews_count} />
+            <RaitingDatails raiting_number={product.rating_details} size_of_grade={product.reviews_count} />
             <div className="button-wrapper">
               <button className="button" onClick={() => getData()}>
                 Написать отзыв
               </button>
-            </div>
+            </div>   
+            
           </header>
-
+          {/*  */}
           <main>
-            <div className="wrapper1">
-              <Slide photos={product.review_photos} />
-            </div>
+            <div className='wrapper1'><Slide photos = {product.review_photos}/></div>
             <div>
-              <Options filterFunction={getNewData} loading = {setIsLoading} setSelectValue={setSelectValue} selectValue={selectValue}/>
+              <Options filterFunction={getNewData} />
             </div>
             <div>
               {review.map((data: any) => {
-                const reviewSettings = {
+
+                const rewievSettings = {
                   key: uuidv4(),
                   name: data.author.name,
                   avatar: data.author.initials,
@@ -104,14 +102,13 @@ function App() {
                   like: data.likes,
                   dislike: data.dislikes,
                   source: "http:sdfsdfsdf",
-                  rating_details: data.rating_details,
-                  answer: data.comments,
-                };
+                }
 
-                return <Review {...reviewSettings} />;
+                return (
+                  <Rewiev {...rewievSettings} />
+                );
               })}
             </div>
-            <Pagination filterFunction={getNewData} loading = {setIsLoading} selectValue={selectValue}/>
           </main>
         </div>
       </div>
