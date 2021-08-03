@@ -20,6 +20,7 @@ async function getData(page?: string, sort?: string) {
       widget_id
     );
     const data = await fetchingData.getData(page, sort);
+    console.log(data);
     
     const product = fetchingData.getProduct(data);
     const reviews: Array<{}> = fetchingData.getReview(data);

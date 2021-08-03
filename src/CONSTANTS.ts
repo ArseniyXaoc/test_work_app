@@ -11,7 +11,7 @@ const CONNECTION_CONFIG = {
     url: 'https://w-api2.aplaut.io/widgets/v2/render.json',
     authentication_token: '56fa337b8ddf870c76021a5f',
     context: 'product',
-    context_id: '10503329',
+    context_id: '1050332',
     theme_id: 'default',
     widget_id: 'product-reviews',
 }
