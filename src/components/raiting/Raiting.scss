@@ -42,6 +42,7 @@ $raiting: rgb(255, 187, 0);
 .datails {
     display: flex;
     flex-wrap: nowrap;
+    justify-content: space-between;
 
     &-label {
         margin-right: 10px;

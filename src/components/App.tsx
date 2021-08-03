@@ -27,6 +27,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const [form, setForm] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   function getNewData(page: string | undefined, sort: string | undefined) {
     getData(page, sort).then(
@@ -69,7 +70,7 @@ function App() {
   } else if (product !== undefined && review !== undefined) {
     return (
       <div className="App">
-        {form && <div className="cover"><Write setForm={setForm}/></div>}
+        {form && <div className="cover"><Write setForm={setForm} /></div>}
         <div className="wrapper">
 
 
@@ -85,7 +86,7 @@ function App() {
             <div className="button-wrapper">
               <button className="button" onClick={() => {
                 setForm(true)
-                }}>
+              }}>
                 Написать отзыв
               </button>
             </div>
@@ -121,7 +122,7 @@ function App() {
                 return <Review {...reviewSettings} />;
               })}
             </div>
-            <Pagination filterFunction={getNewData} loading={setIsLoading} selectValue={selectValue} />
+            <Pagination currentPage ={currentPage} setCurrentPage={setCurrentPage} filterFunction={getNewData} loading={setIsLoading} selectValue={selectValue} />
           </main>
         </div>
       </div>
