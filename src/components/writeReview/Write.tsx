@@ -3,11 +3,8 @@ import './Write.scss'
 
 export default function Write ({setForm}:{setForm: React.Dispatch<React.SetStateAction<boolean>>}) {
     useEffect(() =>{
-        console.log('asd');
         const cov = document.getElementsByClassName('cover');
-        console.log(cov);
         const set = (event: any) => {
-            console.log(event.target.className);
             if(event.target.className === "cover") setForm(false)
         };
         cov[0].addEventListener('click', set)

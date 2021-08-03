@@ -26,7 +26,6 @@ class FetchingData {
             return body
             //return x;
         } catch (error) {
-            console.log(error);
             throw new Error(error);
         }
     }

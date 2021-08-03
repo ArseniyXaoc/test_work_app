@@ -9,7 +9,6 @@ function Options({ filterFunction }: { filterFunction: (page:string | undefined,
     const handler = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
         stateRef.current = event.target.value;
         setSelectValue(event.target.value);
-        console.log(stateRef.current);
         setIsLoading(true);
         filterFunction(undefined, stateRef.current);
     }, [selectValue])
