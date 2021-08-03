@@ -6,7 +6,10 @@ export default function Write ({setForm}:{setForm: React.Dispatch<React.SetState
         console.log('asd');
         const cov = document.getElementsByClassName('cover');
         console.log(cov);
-        const set = () => setForm(false);
+        const set = (event: any) => {
+            console.log(event.target.className);
+            if(event.target.className === "cover") setForm(false)
+        };
         cov[0].addEventListener('click', set)
         document.body.style.overflow = 'hidden';
         return () => {
