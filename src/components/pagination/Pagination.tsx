@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Pagination.scss";
+import { v4 as uuidv4 } from "uuid";
+
 
 function Pagination({ filterFunction, loading, selectValue, currentPage, setCurrentPage, pagesAll }: {
   filterFunction: (page: string | undefined, sort: string | undefined) => void,
@@ -47,7 +49,7 @@ function Pagination({ filterFunction, loading, selectValue, currentPage, setCurr
   return <div className='pagination'>{pages.map((data, index) => {
       return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
-        <button className={data === currentPage ? 'pagination-btn' : 'pagination-btn pagination-current'} onClick={handler}>
+        <button key={uuidv4()} className={data === currentPage ? 'pagination-btn' : 'pagination-btn pagination-current'} onClick={handler}>
           {data}
         </button>
       );

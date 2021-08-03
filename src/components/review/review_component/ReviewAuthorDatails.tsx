@@ -1,5 +1,6 @@
 import "./Review.scss";
 import reitingToStar from '../../../utils/raitingToStar'
+import { v4 as uuidv4 } from "uuid";
 
 function ReviewAuthorDatails({
   rating_details,
@@ -10,7 +11,7 @@ function ReviewAuthorDatails({
       <ul className='review-author-details'>
           {rating_details.map(data => {
               return (
-                  <li ><span>{data.label}</span><span className='datails-value'>{reitingToStar(data.value)}</span></li>
+                  <li key={uuidv4()} ><span>{data.label}</span><span className='datails-value'>{reitingToStar(data.value)}</span></li>
               )
           })}
       </ul>

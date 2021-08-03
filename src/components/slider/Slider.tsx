@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import Slider from "react-slick";
+import { v4 as uuidv4 } from "uuid";
 
 import "../App.scss";
 
@@ -39,7 +40,7 @@ function Slide({
       <Slider {...settings}>
         {photos.map((data) => {
           return (
-            <div>
+            <div key={uuidv4()}>
               <img style={styleImg} src={data.url_large} alt="" />
             </div>
           );

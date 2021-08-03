@@ -12,7 +12,7 @@ function Options({ filterFunction, loading, setSelectValue, selectValue }: { fil
         loading(false);
         setSelectValue(event.target.value);
         filterFunction(undefined, stateRef.current);
-    }, [selectValue])
+    }, [filterFunction, loading, setSelectValue])
 
 
     return (
