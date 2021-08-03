@@ -9,7 +9,8 @@ import Review from "./review/Review";
 import getData from "./App.service";
 import RaitingDatails from "./raiting/RaitingDatails";
 import Slide from "./slider/Slider";
-import Pagination from './pagination/Pagination'
+import Pagination from './pagination/Pagination';
+import Write from './writeReview/Write';
 
 interface IProduct {
   rating: number;
@@ -25,6 +26,7 @@ function App() {
   const [review, setReview] = useState<Array<{}>>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
+  const [form, setForm] = useState(false);
 
   function getNewData(page: string | undefined, sort: string | undefined) {
     getData(page, sort).then(
@@ -67,7 +69,9 @@ function App() {
   } else if (product !== undefined && review !== undefined) {
     return (
       <div className="App">
+        {form && <div className="cover"><Write setForm={setForm}/></div>}
         <div className="wrapper">
+
 
           <header className="header">
             <Raiting
@@ -79,7 +83,9 @@ function App() {
               size_of_grade={product.reviews_count}
             />
             <div className="button-wrapper">
-              <button className="button" onClick={() => getData()}>
+              <button className="button" onClick={() => {
+                setForm(true)
+                }}>
                 Написать отзыв
               </button>
             </div>

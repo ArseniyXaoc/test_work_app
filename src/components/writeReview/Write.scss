@@ -1,0 +1,39 @@
+.write {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    background-color: aliceblue;
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+    }
+
+    &-text {
+        width: 300px;
+        margin: 20px;
+    }
+
+    &-button {
+        position: absolute;
+        right: 30px;
+        top: 22px;
+        font-size: 22px;
+        border-radius: 20px;
+        
+    }
+}
+
+.write-button:hover{
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
