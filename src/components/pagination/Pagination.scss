@@ -1,22 +1,26 @@
 .pagination {
+    margin-bottom: 40px;
+
     &-btn {
         display: inline-block;
-        width: 30px;
-        height: 20px;
+        font-size: 25px;
+        padding: 22px;
         margin-right: 20px;
-        background-color: rgb(194, 194, 194);
+        background-color: #c2c2c2;
         border-radius: 3px;
         border: 1px solid black;
-
         text-decoration: none;
         color: black;
         font-weight: bold;
+        cursor: pointer;
     }
-    &-current{
+
+    &-current {
         background-color: rgb(133, 133, 133);
     }
 }
 
-.pagination-btn:hover{
-    background-color: rgb(231, 231, 231);;
+.pagination-btn:hover {
+    background-color: rgb(231, 231, 231);
+    ;
 }

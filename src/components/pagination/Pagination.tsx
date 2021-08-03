@@ -36,12 +36,13 @@ function Pagination({ filterFunction, loading, selectValue }: {
     // @ts-ignore
     const x: HTMLAnchorElement = event.target;
     const num = x.innerHTML;
+    loading(false);
     filterFunction(num, selectValue);
     setCurrentPage(Number(num));
   }
   const pages = pageArr();
 
-  return <div>{pages.map((data, index) => {
+  return <div className='pagination'>{pages.map((data, index) => {
     return (
       // eslint-disable-next-line jsx-a11y/anchor-is-valid
       <button className={data === currentPage ? 'pagination-btn' : 'pagination-btn pagination-current'} onClick={handler}>

@@ -42,6 +42,10 @@ function App() {
   }
 
   useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, [isLoading])
+
+  useEffect(() => {
     getData().then(
       (data) => {
         setProduct(data.product);
@@ -86,7 +90,7 @@ function App() {
               <Slide photos={product.review_photos} />
             </div>
             <div>
-              <Options filterFunction={getNewData} loading = {setIsLoading} setSelectValue={setSelectValue} selectValue={selectValue}/>
+              <Options filterFunction={getNewData} loading={setIsLoading} setSelectValue={setSelectValue} selectValue={selectValue} />
             </div>
             <div>
               {review.map((data: any) => {
@@ -111,7 +115,7 @@ function App() {
                 return <Review {...reviewSettings} />;
               })}
             </div>
-            <Pagination filterFunction={getNewData} loading = {setIsLoading} selectValue={selectValue}/>
+            <Pagination filterFunction={getNewData} loading={setIsLoading} selectValue={selectValue} />
           </main>
         </div>
       </div>
