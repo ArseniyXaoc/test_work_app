@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./Pagination.scss";
 import { v4 as uuidv4 } from "uuid";
 

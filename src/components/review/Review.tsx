@@ -1,10 +1,8 @@
-import { useEffect } from "react";
 import {
   ReviewAuthor,
   ReviewScore,
   ReviewDetails,
   ReviewText,
-  ReviewQuality,
   ReviewLikeDislike,
   ReviewAnswer,
   ReviewPhotos,

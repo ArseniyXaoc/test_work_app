@@ -1,4 +1,3 @@
-import { RAITING_MUX } from "../../CONSTANTS";
 import './Raiting.scss';
 import reitingToStar from '../../utils/raitingToStar'
 import { v4 as uuidv4 } from "uuid";

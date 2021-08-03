@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef } from 'react';
 import './Options.scss'
 function Options({ filterFunction, loading, setSelectValue, selectValue }: { filterFunction: (page: string | undefined, sort: string) => void, 
     loading: React.Dispatch<React.SetStateAction<boolean>>,

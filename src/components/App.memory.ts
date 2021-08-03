@@ -1,5 +1,3 @@
-import x from '../qwe'
-
 class FetchingData {
     url: string;
     authentication_token: string;
