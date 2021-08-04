@@ -1,4 +1,4 @@
-import "./Review.scss";
+import "./styles/Review.scss";
 import reitingToStar from '../../../utils/raitingToStar'
 import { v4 as uuidv4 } from "uuid";
 

@@ -1,5 +1,6 @@
 $mainText: #383737;
 $secondText: rgb(121, 121, 121);
+$detailsColor: #7b7b7b;
 ;
 
 .review {
@@ -10,19 +11,25 @@ $secondText: rgb(121, 121, 121);
 
     &-score {
         display: flex;
-        color: yellowgreen;
-        font-size: 20px;
+        color: #ffce00;
+        font-size: 21px;
+        letter-spacing: 2px;
+        margin-top: -2px;
     }
 
     &-head {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
+        flex-direction: column;
     }
 
     &-date {
-        font-weight: bold;
-        color: $secondText;
+        font-size: 12px;
+        color: #797979;
+        display: flex;
+        color: #7b7b7b;
+        margin-top: 4px;
+        margin-left: 67px;
     }
 
     &-autor-wrap {
@@ -34,21 +41,21 @@ $secondText: rgb(121, 121, 121);
 
     &-details {
         display: flex;
-        font-size: 14px;
-        
+        font-size: 12px;
+        columns: #7b7b7b;
+        margin-top: 6px;
+        margin-left: 6px;
+
         @media (max-width: 768px) {
             display: none;
         }
     }
 
     &-text {
-        text-align: start;
-        padding-right: 40px;
-        margin-bottom: 30px;
-        background-color: rgba(223, 223, 223, 0.432);
-        border-radius: 20px;
-        padding: 10px;
-        margin-right: 30px;
+        display: flex;
+        margin-bottom: 29px;
+        flex-direction: column;
+        text-align: left;
 
         @media (max-width: 768px) {
             text-align: justify;
@@ -61,9 +68,7 @@ $secondText: rgb(121, 121, 121);
         color: $secondText
     }
 
-    &-value {
-        font-weight: bold;
-    }
+    &-value {}
 
     &-location {
         display: flex;
@@ -80,10 +85,12 @@ $secondText: rgb(121, 121, 121);
 
 .review-author {
     display: flex;
+    margin-top: 6px;
     align-items: center;
+    font-size: 14px;
 
     &-details {
- 
+
 
         li {
             display: flex;
@@ -105,30 +112,38 @@ $secondText: rgb(121, 121, 121);
     }
 }
 
+
+
 .author {
     &-avatar {
-        border: 2px solid black;
-        border-radius: 20px;
-        padding: 7px 10px;
-        background-color: burlywood;
-        font-weight: bold;
-        margin-right: 10px;
+        border-radius: 48px;
+        margin-top: 4px;
+        padding: 18px 21px;
+        background-color: #ffe6e6;
+        /* font-weight: bold; */
+        margin-right: 8px;
+        font-size: 14px;
+        color: #d06666;
+        margin-bottom: auto;
     }
 }
 
 .icons {
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
+    width: 22px;
+    height: 20px;
+    margin-left: 20px;
+    display: flex;
+
     :hover {
         background-color: rgba(190, 134, 134, 0.247);
         border-radius: 5px;
         cursor: pointer;
         transform: translateY(-2px);
     }
+
     &-wrapper {
         display: flex;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
 }
@@ -137,9 +152,22 @@ $secondText: rgb(121, 121, 121);
     margin-top: 40px;
     border: 2px solid $mainText;
     border-radius: 5px;
+
     &-main {
         text-align: start;
         margin: 10px;
         font-size: 12px;
     }
+
+    &-button {
+        background-color: inherit;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        margin-left: 43px;
+        font-size: 12px;
+        height: 15px;
+    }
 }
+
+

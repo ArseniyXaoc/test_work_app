@@ -1,4 +1,4 @@
-import './Review.scss'
+import './styles/Review.scss'
 
 function ReviewQuality(params:any) {
     return (

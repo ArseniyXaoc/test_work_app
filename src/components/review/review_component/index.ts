@@ -4,7 +4,7 @@ import ReviewDetails from "./ReviewDetails";
 import ReviewText from "./ReviewText";
 import ReviewQuality from "./ReviewQuality";
 import ReviewLikeDislike from "./ReviewLikeDislike";
-import ReviewAnswer from "./ReviewAnswer";
+import ReviewComents from "./ReviewComments";
 import ReviewPhotos from "./ReviewPhotos";
 import ReviewCreateAnswer from "./ReviewCreateAnswer";
 import ReviewLocation from "./ReviewLocation";
@@ -18,7 +18,7 @@ export {
   ReviewText,
   ReviewQuality,
   ReviewLikeDislike,
-  ReviewAnswer,
+  ReviewComents,
   ReviewPhotos,
   ReviewCreateAnswer,
   ReviewLocation,

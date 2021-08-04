@@ -4,3 +4,8 @@ declare module "*.svg" {
     const content: (props: SVGProps<SVGElement>) => ReactElement;
     export {content};
 }
+
+declare module '*.css' {
+    export const content: { [className: string]: string };
+    export default content;
+}

@@ -1,4 +1,4 @@
-import './Review.scss'
+import './styles/Review.scss'
 import reitingToStar from '../../../utils/raitingToStar'
 import {RAITING_MUX} from '../../../CONSTANTS'
 

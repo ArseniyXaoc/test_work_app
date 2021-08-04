@@ -1,4 +1,4 @@
-import "./Review.scss";
+import "./styles/Review.scss";
 import { v4 as uuidv4 } from "uuid";
 
 function ReviewPhotos({ photos }: { photos: string[] }) {

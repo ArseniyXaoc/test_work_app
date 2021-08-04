@@ -9,8 +9,8 @@ interface IFilter {
 
 function Filter({ filter_theme }: IFilter) {
     return (
-        <div>
-            <h3>Отзывы в которых упоминается:</h3>
+        <div className={'filter-wrapper'}>
+            <h3  className={'filter-header'}>Отзывы в которых упоминается:</h3>
             <div className='filter'>
                 {filter_theme.map(item => {
                    return <button key= {uuidv4()} className='filter-button'>{item}</button>

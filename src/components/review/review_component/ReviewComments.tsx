@@ -1,4 +1,4 @@
-import "./Review.scss";
+import style from "./styles/Comments.module.scss";
 import ReviewAuthor from "./ReviewAuthor";
 import ReviewText from "./ReviewText";
 import { v4 as uuidv4 } from "uuid";
@@ -21,17 +21,16 @@ function ReviewAnswer({
     )
   }
   else return (
-    <div className="answer">
-      <div className="answer-main">Коментарии: </div>
+    <div className={style.wrapper}>
       {answer.map((data) => {
         return (
-          <div key={uuidv4()} className="answer-main">
+          <div key={uuidv4()} className={style.author}>
             <ReviewAuthor 
               name={data.author.name}
               avatar={data.author.initials}
               avatar_url=""
             />
-            <div className="answer-main"><ReviewText text = {data.text} /></div>
+            <div className={style.text}><ReviewText text = {data.text} /></div>
           </div>
         );
       })}

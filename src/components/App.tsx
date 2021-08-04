@@ -11,6 +11,7 @@ import RaitingDatails from "./raiting/RaitingDatails";
 import Slide from "./slider/Slider";
 import Pagination from './pagination/Pagination';
 import Write from './writeReview/Write';
+import Filter from './filter/Filter';
 
 interface IProduct {
   rating: number;
@@ -29,6 +30,8 @@ function App() {
   const [form, setForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState(1);
+
+  const filter_theme = ['Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет',]
 
   function getNewData(page: string | undefined, sort: string | undefined) {
     getData(page, sort).then(
@@ -81,10 +84,6 @@ function App() {
               raiting_number={product.rating}
               size_of_grade={product.reviews_count}
             />
-            <RaitingDatails
-              raiting_number={product.rating_details}
-              size_of_grade={product.reviews_count}
-            />
             <div className="button-wrapper">
               <button className="button" onClick={() => {
                 setForm(true)
@@ -96,8 +95,10 @@ function App() {
 
           <main>
             <div className="wrapper1">
+              <div className='sand-photo'></div>
               <Slide photos={product.review_photos} />
             </div>
+            <Filter filter_theme = {filter_theme}/>
             <div>
               <Options filterFunction={getNewData} loading={setIsLoading} setSelectValue={setSelectValue} selectValue={selectValue} />
             </div>

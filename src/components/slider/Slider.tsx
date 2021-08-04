@@ -4,6 +4,18 @@ import { v4 as uuidv4 } from "uuid";
 
 import "../App.scss";
 
+function SampleNextArrow(props: any) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red", width:"10px", height:"10px" }}
+      onClick={onClick}
+    />
+  );
+}
+
+
 function Slide({
   photos,
 }: {
@@ -16,7 +28,6 @@ function Slide({
   }[];
 }) {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -24,19 +35,19 @@ function Slide({
     arrows: true,
     variableWidth: true,
     adaptiveHeight: true,
+    nextArrow: <SampleNextArrow class='slick-my' />,
   };
 
   const styleImg: CSSProperties = {
-    width: "250px",
+    width: "100px",
     height: "100px",
     objectFit: "cover",
-    margin: "10px",
-    border: "3px solid",
-    borderRadius: "10px",
+    marginRight: "14px",
+    border: "1px solid",
+    borderRadius: "4px",
   };
   return (
-    <div>
-      <h3>Фото товара</h3>
+    <div className='slider-wrapper'>
       <Slider {...settings}>
         {photos.map((data) => {
           return (

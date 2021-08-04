@@ -1,28 +1,33 @@
-$raiting: rgb(255, 187, 0);
+$raiting: #7b7b7b;
+;
 
 .raiting {
+
+    margin-top: 4px;
     max-width: 200px;
     display: flex;
     flex-direction: column;
-    color: rgb(56, 55, 55);
+    color: #383737;
+    align-items: flex-start;
 
     &-wrapper {
         display: flex;
+        margin-bottom: 4px;
     }
 
     &-digits {
-        font-size: 48px;
+        font-size: 50px;
         font-weight: bold;
-        padding-right: 10px;
+        padding-right: 3px;
     }
 
     &-stars {
         display: flex;
         list-style-type: none;
-        align-self: flex-end;
-        margin-bottom: 10px;
-        font-size: 28px;
-        color: $raiting;
+        align-items: flex-end;
+        margin-bottom: 9px;
+        font-size: 24px;
+        color: #7b7b7b;
     }
 
     &-text {
@@ -55,11 +60,13 @@ $raiting: rgb(255, 187, 0);
 
 
 .button {
-    background-color: rgb(56, 55, 55);
+    background-color: #383737;
     border: none;
     color: white;
-    padding: 15px 20px;
+    font-size: 17px;
+    padding: 10px 39px;
     border-radius: 20px;
+    margin-right: 22px;
     cursor: pointer;
     transition: background-color 0.5s;
     box-shadow: 0 1px #666;

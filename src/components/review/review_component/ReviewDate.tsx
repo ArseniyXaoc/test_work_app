@@ -1,4 +1,4 @@
-import './Review.scss'
+import './styles/Review.scss'
 
 function ReviewDate({date}:{date: string}) {
     return (
