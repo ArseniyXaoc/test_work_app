@@ -1,9 +1,10 @@
 import style from "./styles/ReviewComments.module.scss";
-import { IReviewAnswer } from "../Review";
+
 import likeIco from "../../../assets/icons/like.png";
 import dislikeIco from "../../../assets/icons/dislike.png";
 import ReviewCreateAnswer from "./ReviewCreateAnswer";
 import { useEffect, useState } from "react";
+import { IReviewAnswer } from "../../interfaces/Interfaces";
 
 function ReviewAnswer({ answer }: { answer: Array<IReviewAnswer> }) {
   const length = answer.length;

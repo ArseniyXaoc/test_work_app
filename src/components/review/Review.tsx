@@ -14,47 +14,11 @@ import {
 } from "./review_component";
 
 import "./review_component/styles/Review.scss";
+import { IReviewAnswer, IReviewPhotos, IReview } from "../interfaces/Interfaces";
 
-export interface IReviewAnswer {
-  author: {
-    name: string;
-    initials: string;
-  };
-  created_at: string;
-  updated_at: string;
-  text: string;
-  likes: number;
-  dislikes: number;
-}
-
-interface IReview {
-  name: string;
-  avatar: string;
-  avatar_url: string;
-  location: string;
-  score: number;
-  detailsOption: {
-    value: string;
-    name: string;
-    label: string;
-  }[];
-  date: string;
-  text: string;
-  photos: string[];
-  like: number;
-  dislike: number;
-  source: string;
-  rating_details: {
-    value: number;
-    name: string;
-    label: string;
-  }[];
-  answer: IReviewAnswer[];
-}
 
 function Review(params: IReview) {
   const [isReviev, setIsReviev] = useState(false);
-
   function randomColor (): string {
     const x: string = '#' + (Math.random().toString(16)+ '000000').substring(2,8).toUpperCase();
     return x+'40';
@@ -92,8 +56,9 @@ function Review(params: IReview) {
         </div>
         <div className="main-details">
           <ReviewText text={params.text} />
-          <ReviewPhotos photos={params.photos} />
+          
         </div>
+        {params.photos.length > 0  && <ReviewPhotos photos={params.photos} />}
         <div className="review-bottom">
           <div style={{ display: "flex" }}>
             <ReviewLikeDislike like={params.like} dislike={params.dislike} />

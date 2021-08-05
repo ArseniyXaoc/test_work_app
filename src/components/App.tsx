@@ -13,14 +13,8 @@ import Write from "./writeReview/Write";
 import Filter from "./filter/Filter";
 import LoadPages from "./LoadPages/LoadPages";
 import Header from "./LoadPages/Header/Header";
+import { IProduct } from "./interfaces/Interfaces";
 
-interface IProduct {
-  rating: number;
-  reviews_count: number;
-  rating_details: [];
-  review_photos: [];
-  [key: string]: number | string | [];
-}
 
 function App() {
   const [selectValue, setSelectValue] = useState("created_at%3Adesc");
@@ -32,7 +26,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentSort, setCurrentSort] = useState(1);
   const [pages, setPages] = useState(1);
-  const [onlyPhoto, setOnlyPhoto] = useState(true);
+  const [onlyPhoto, setOnlyPhoto] = useState(false);
 
 
   const filter_theme = [
@@ -52,7 +46,7 @@ function App() {
 
   function getNewData(page: number | undefined, sort: string | undefined) {
 
-    getData(page, sort).then(
+    getData(onlyPhoto, page, sort).then(
       (data) => {
         setProduct(data.product);
         setReview(data.reviews);
@@ -67,7 +61,7 @@ function App() {
   }
 
   function nextPage(page: number | undefined, sort: string | undefined) {
-    getData(page, sort).then(
+    getData(onlyPhoto, page, sort).then(
       (data) => {
         setReview(() => review?.concat(data.reviews));
         setProduct(data.product);
@@ -88,11 +82,10 @@ function App() {
   }, [isLoading]);
 
   useEffect(() => {
-    getData().then(
+    getData(onlyPhoto).then(
       (data) => {
         setProduct(data.product);
         setReview(data.reviews);
-        // photo(data.reviews);
         setPages(data.pages.total_pages);
         setIsLoading(true);
       },
@@ -103,12 +96,6 @@ function App() {
       }
     );
   }, []);
-
-  // function photo (data: []) {
-  //   const asd = data.map(data => {
-
-  //   })
-  // }
 
   if (error) {
     return <div className="App">Ощибка: {error.message}</div>;
@@ -145,6 +132,8 @@ function App() {
                 loading={setIsLoading}
                 setSelectValue={setSelectValue}
                 selectValue={selectValue}
+                onlyPhoto={onlyPhoto}
+                setOnlyPhoto={setOnlyPhoto}
               />
             </section>
             <div>

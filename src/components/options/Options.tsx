@@ -1,13 +1,13 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './Options.scss'
-function Options({ filterFunction, loading, setSelectValue, selectValue }: { filterFunction: (page: number | undefined, sort: string) => void, 
+function Options({ filterFunction, loading, setSelectValue, selectValue, onlyPhoto, setOnlyPhoto }: { filterFunction: (page: number | undefined, sort: string) => void, 
     loading: React.Dispatch<React.SetStateAction<boolean>>,
     setSelectValue: React.Dispatch<React.SetStateAction<string>>,
-    selectValue: string }) {
+    selectValue: string, 
+    onlyPhoto: boolean,
+    setOnlyPhoto: React.Dispatch<React.SetStateAction<boolean>>  }) {
     
     const stateRef = useRef('');
-    const [isChecked, setIsChecked] = useState(false);
-
     
 
     const handler = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -17,6 +17,22 @@ function Options({ filterFunction, loading, setSelectValue, selectValue }: { fil
         filterFunction(undefined, stateRef.current);
     }, [filterFunction, loading, setSelectValue])
 
+    const handlerCheckbox = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+        if(event.target.checked){
+            setOnlyPhoto(true);
+            console.log(onlyPhoto);
+            console.log(1);   
+        } else {
+            setOnlyPhoto(false);
+            console.log(onlyPhoto);
+            console.log(2);
+        } 
+    }, [onlyPhoto]);
+
+    useEffect(() => {
+        console.log(onlyPhoto);
+        filterFunction(undefined, selectValue);
+    }, [onlyPhoto]);
 
     return (
         <div>
@@ -30,7 +46,7 @@ function Options({ filterFunction, loading, setSelectValue, selectValue }: { fil
                         <option selected value="rating%3Aasc">Сначала с низкой оценкой</option>
                     </select></p>
                     <div className='checkBox'>
-                        <input type="checkbox" checked={isChecked} name="check" id="check" onChange = {(e) => {e.target.checked? setIsChecked(true): setIsChecked(false)}}/> 
+                        <input type="checkbox" checked={onlyPhoto} name="check" id="check" onChange = {handlerCheckbox}/> 
                         <label htmlFor="check">Только с фото</label>
                     </div>
             </form>

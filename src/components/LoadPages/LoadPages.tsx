@@ -12,7 +12,7 @@ function LoadPages({
   setPages }:
   {
     currentPage: number,
-    nextPage: (page: number | undefined, sort: string | undefined) => void,
+    nextPage: (page: number | undefined, sort: string | undefined, onlyPhoto?: boolean | undefined) => void,
     selectValue: string,
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>,
     pages: number,

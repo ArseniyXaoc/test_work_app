@@ -1,6 +1,6 @@
 import FetchingData from "./App.memory";
 import { CONNECTION_CONFIG } from "../CONSTANTS";
-async function getData(page?: number | undefined, sort?: string) {
+async function getData(onlyPhoto: boolean, page?: number | undefined, sort?: string, ) {
   try {
     const {
       url,
@@ -19,7 +19,7 @@ async function getData(page?: number | undefined, sort?: string) {
       theme_id,
       widget_id
     );
-    const data = await fetchingData.getData(page, sort);
+    const data = await fetchingData.getData(onlyPhoto, page, sort );
     const product = fetchingData.getProduct(data);
     const reviews: Array<{}> = fetchingData.getReview(data);
     const pages: {

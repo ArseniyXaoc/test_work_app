@@ -17,10 +17,9 @@ class FetchingData {
         this.widget_id = widget_id;
     }
 
-    async getData(page: number | undefined, sort: string | undefined) {
+    async getData(onlyPhoto: boolean, page: number | undefined, sort: string | undefined, ) {
         try {
-            
-            let response = await fetch(`${this.url}?authentication_token=${this.authentication_token}&context=${this.context}&context_id=${this.context_id}&theme_id=${this.theme_id}&widget_id=${this.widget_id}${page ? `&page=${page}` : ''}${sort ? `&sort=${sort}` : ''}`);
+            let response = await fetch(`${this.url}?authentication_token=${this.authentication_token}&context=${this.context}&context_id=${this.context_id}&theme_id=${this.theme_id}&widget_id=${this.widget_id}${page ? `&page=${page}` : ''}${sort ? `&sort=${sort}` : ''}${onlyPhoto ? '&filter=photos_count:gt:0' : ''}`);
 
             if(response.headers.get('content-type') !== 'application/json; charset=utf-8') throw new Error( await response.text());
             if(!response.ok) throw new Error( String(response.status));
