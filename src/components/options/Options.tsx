@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import './Options.scss'
-function Options({ filterFunction, loading, setSelectValue, selectValue }: { filterFunction: (page: string | undefined, sort: string) => void, 
+function Options({ filterFunction, loading, setSelectValue, selectValue }: { filterFunction: (page: number | undefined, sort: string) => void, 
     loading: React.Dispatch<React.SetStateAction<boolean>>,
     setSelectValue: React.Dispatch<React.SetStateAction<string>>,
     selectValue: string }) {

@@ -1,6 +1,6 @@
 import FetchingData from "./App.memory";
 import { CONNECTION_CONFIG } from "../CONSTANTS";
-async function getData(page?: string, sort?: string) {
+async function getData(page?: number | undefined, sort?: string) {
   try {
     const {
       url,

@@ -17,7 +17,7 @@ class FetchingData {
         this.widget_id = widget_id;
     }
 
-    async getData(page: string | undefined, sort: string | undefined) {
+    async getData(page: number | undefined, sort: string | undefined) {
         try {
             
             let response = await fetch(`${this.url}?authentication_token=${this.authentication_token}&context=${this.context}&context_id=${this.context_id}&theme_id=${this.theme_id}&widget_id=${this.widget_id}${page ? `&page=${page}` : ''}${sort ? `&sort=${sort}` : ''}`);

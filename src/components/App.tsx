@@ -32,7 +32,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentSort, setCurrentSort] = useState(1);
   const [pages, setPages] = useState(1);
-  
+  const [onlyPhoto, setOnlyPhoto] = useState(true);
+
 
   const filter_theme = [
     "Немного жмет",
@@ -49,7 +50,7 @@ function App() {
     "Немного жмет",
   ];
 
-  function getNewData(page: string | undefined, sort: string | undefined) {
+  function getNewData(page: number | undefined, sort: string | undefined) {
 
     getData(page, sort).then(
       (data) => {
@@ -65,8 +66,8 @@ function App() {
     );
   }
 
-  function nextPage(page: string | undefined, sort: string | undefined) {
-    getData(page, sort).then(      
+  function nextPage(page: number | undefined, sort: string | undefined) {
+    getData(page, sort).then(
       (data) => {
         setReview(() => review?.concat(data.reviews));
         setProduct(data.product);
@@ -91,6 +92,7 @@ function App() {
       (data) => {
         setProduct(data.product);
         setReview(data.reviews);
+        // photo(data.reviews);
         setPages(data.pages.total_pages);
         setIsLoading(true);
       },
@@ -101,6 +103,12 @@ function App() {
       }
     );
   }, []);
+
+  // function photo (data: []) {
+  //   const asd = data.map(data => {
+
+  //   })
+  // }
 
   if (error) {
     return <div className="App">Ощибка: {error.message}</div>;
@@ -115,7 +123,7 @@ function App() {
           </div>
         )}
         <div className="wrapper">
-          <Header rating ={product.rating} reviews_count={product.reviews_count} setForm ={setForm}/>
+          <Header rating={product.rating} reviews_count={product.reviews_count} setForm={setForm} />
 
           <main>
             {send}
@@ -163,7 +171,14 @@ function App() {
                 return <Review {...reviewSettings} />;
               })}
             </div>
-            <LoadPages currentPage={currentPage} nextPage ={nextPage} selectValue = {selectValue} setCurrentPage={setCurrentPage} />
+            {pages > 10 && <LoadPages
+              currentPage={currentPage}
+              nextPage={nextPage}
+              selectValue={selectValue}
+              setCurrentPage={setCurrentPage}
+              pages={pages}
+              setPages={setPages}
+            /> }
           </main>
         </div>
       </div>
