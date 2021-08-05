@@ -146,7 +146,7 @@ $detailsColor: #7b7b7b;
     margin-left: 20px;
     display: flex;
 
-    :hover {
+    &:hover {
         background-color: rgba(190, 134, 134, 0.247);
         border-radius: 5px;
         cursor: pointer;

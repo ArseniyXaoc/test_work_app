@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./App.scss";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
+import photoIcon from '../assets/icons/pngwing.com.png'
 import Raiting from "./raiting/Raiting";
 import Options from "./options/Options";
 import Review from "./review/Review";
@@ -121,7 +122,7 @@ function App() {
                   const x = document.getElementById('uploadfile');
                   x?.click();
                 }}
-              ></button>
+              ><img style={{width:'23px', height: '23px'}} src={photoIcon} alt="" /></button>
               <Slide photos={product.review_photos} />
             </section>
 
