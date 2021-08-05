@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import './Write.scss'
+import style from './Write.module.scss'
 
 export default function Write ({setForm}:{setForm: React.Dispatch<React.SetStateAction<boolean>>}) {
     useEffect(() =>{
@@ -14,21 +14,21 @@ export default function Write ({setForm}:{setForm: React.Dispatch<React.SetState
         }
       })
     return (
-        <div className='write'>
-            <button className='write-button' onClick={() => setForm(false)}>X</button>
-            <form className='write-form' action="POST">
+        <div className={style.write}>
+            <button className={style.write_button} onClick={() => setForm(false)}>X</button>
+            <form className={style.write_form} action="POST">
                 <label htmlFor="writeReview">
                     Ваш отзыв:
                 </label>
-                <input className='write-text' type="text" name="writeReview" id="writeReview" />
+                <input className={style.write_text} type="text" name="writeReview" id="writeReview" />
                 <label htmlFor="writeReview">
                     Достоинства:
                 </label>
-                <input className='write-text' type="text" name="writeReview" id="writeReview" />
+                <input className={style.write_text} type="text" name="writeReview" id="writeReview" />
                 <label htmlFor="writeReview">
                     Недостатки:
                 </label>
-                <input className='write-text' type="text" name="writeReview" id="writeReview" />
+                <input className={style.write_text} type="text" name="writeReview" id="writeReview" />
                 <input type="button" value="Отправить" />
             </form>
         </div>

@@ -4,12 +4,22 @@ import { v4 as uuidv4 } from "uuid";
 
 import "../App.scss";
 
+
 function SampleNextArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "red", width:"10px", height:"10px" }}
+      style={{ ...style,
+        display: 'block',
+
+        width: '38px',
+        height: '38px',
+        boxSizing: 'border-box',
+        position: 'absolute',
+        top: '45%',
+        right: '2%',
+       }}
       onClick={onClick}
     />
   );

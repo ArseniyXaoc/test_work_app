@@ -15,6 +15,18 @@ import {
 
 import "./review_component/styles/Review.scss";
 
+export interface IReviewAnswer {
+  author: {
+    name: string;
+    initials: string;
+  };
+  created_at: string;
+  updated_at: string;
+  text: string;
+  likes: number;
+  dislikes: number;
+}
+
 interface IReview {
   name: string;
   avatar: string;
@@ -37,26 +49,23 @@ interface IReview {
     name: string;
     label: string;
   }[];
-  answer: {
-    author: {
-      name: string;
-      initials: string;
-    };
-    updated_at: string;
-    text: string;
-  }[];
+  answer: IReviewAnswer[];
 }
 
 function Review(params: IReview) {
-  const [isReviev, setIsReviev] = useState(true);
+  const [isReviev, setIsReviev] = useState(false);
+
+  function randomColor (): string {
+    const x: string = '#' + (Math.random().toString(16)+ '000000').substring(2,8).toUpperCase();
+    return x+'40';
+  }
 
   return (
     <div className="review-wrapper">
       <div>
-        <hr />
         <div className="review-head">
           <div style={{ display: "flex" }}>
-            <div className="author-avatar">
+            <div className="author-avatar" style={{backgroundColor: randomColor()}}>
               {params.avatar_url ? (
                 <img src={params.avatar_url} alt={params.avatar} />
               ) : (
@@ -75,20 +84,28 @@ function Review(params: IReview) {
               </div>
             </div>
           </div>
-          <ReviewDate date={params.date} />
+          <div style={{display: "flex"}}>
+            <div className="verifed">проверенный покупатель</div>
+            <div className="top">топ автор</div>
+            <ReviewDate date={params.date} />
+          </div>
         </div>
         <div className="main-details">
           <ReviewText text={params.text} />
           <ReviewPhotos photos={params.photos} />
         </div>
-        <div style={{ display: "flex", color: "#7b7b7b", fontSize: "12px" }}>
-          <ReviewLikeDislike like={params.like} dislike={params.dislike} />
-          <button className="answer-button">Ответить</button>
-          Источник:
+        <div className="review-bottom">
+          <div style={{ display: "flex" }}>
+            <ReviewLikeDislike like={params.like} dislike={params.dislike} />
+            <button className="answer-button" onClick={() => setIsReviev(true)}>
+              Ответить
+            </button>
+          </div>
+          <span>Источник:</span>
         </div>
       </div>
-      {isReviev && <ReviewCreateAnswer/>}
-      <ReviewComents answer={params.answer}/>
+      {isReviev && <ReviewCreateAnswer setIsReviev={setIsReviev} />}
+      <ReviewComents answer={params.answer} />
     </div>
   );
 }

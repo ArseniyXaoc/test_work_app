@@ -7,11 +7,12 @@ import Raiting from "./raiting/Raiting";
 import Options from "./options/Options";
 import Review from "./review/Review";
 import getData from "./App.service";
-import RaitingDatails from "./raiting/RaitingDatails";
 import Slide from "./slider/Slider";
-import Pagination from './pagination/Pagination';
-import Write from './writeReview/Write';
-import Filter from './filter/Filter';
+import Pagination from "./pagination/Pagination";
+import Write from "./writeReview/Write";
+import Filter from "./filter/Filter";
+import LoadPages from "./LoadPages/LoadPages";
+import Header from "./LoadPages/Header/Header";
 
 interface IProduct {
   rating: number;
@@ -22,18 +23,34 @@ interface IProduct {
 }
 
 function App() {
-  const [selectValue, setSelectValue] = useState('created_at%3Adesc');
+  const [selectValue, setSelectValue] = useState("created_at%3Adesc");
   const [product, setProduct] = useState<IProduct>();
   const [review, setReview] = useState<Array<{}>>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
   const [form, setForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentSort, setCurrentSort] = useState(1);
   const [pages, setPages] = useState(1);
+  
 
-  const filter_theme = ['Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет','Немного жмет',]
+  const filter_theme = [
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+    "Немного жмет",
+  ];
 
   function getNewData(page: string | undefined, sort: string | undefined) {
+
     getData(page, sort).then(
       (data) => {
         setProduct(data.product);
@@ -48,9 +65,26 @@ function App() {
     );
   }
 
+  function nextPage(page: string | undefined, sort: string | undefined) {
+    getData(page, sort).then(      
+      (data) => {
+        setReview(() => review?.concat(data.reviews));
+        setProduct(data.product);
+        setIsLoading(true);
+      },
+
+      (error) => {
+        setIsLoading(true);
+        setError(error);
+      }
+    );
+  }
+
+  const send = <input className="hidden" type="file" id="uploadfile" />;
+
   useEffect(() => {
-    window.history.scrollRestoration = 'manual';
-  }, [isLoading])
+    window.history.scrollRestoration = "manual";
+  }, [isLoading]);
 
   useEffect(() => {
     getData().then(
@@ -75,35 +109,39 @@ function App() {
   } else if (product !== undefined && review !== undefined) {
     return (
       <div className="App">
-        {form && <div className="cover"><Write setForm={setForm} /></div>}
+        {form && (
+          <div className="cover">
+            <Write setForm={setForm} />
+          </div>
+        )}
         <div className="wrapper">
-
-
-          <header className="header">
-            <Raiting
-              raiting_number={product.rating}
-              size_of_grade={product.reviews_count}
-            />
-            <div className="button-wrapper">
-              <button className="button" onClick={() => {
-                setForm(true)
-              }}>
-                Написать отзыв
-              </button>
-            </div>
-          </header>
+          <Header rating ={product.rating} reviews_count={product.reviews_count} setForm ={setForm}/>
 
           <main>
-            <div className="wrapper1">
-              <div className='sand-photo'></div>
+            {send}
+            <section className="sliderWrapper">
+              <button
+                className="sand-photo"
+                onClick={() => {
+                  const x = document.getElementById('uploadfile');
+                  x?.click();
+                }}
+              ></button>
               <Slide photos={product.review_photos} />
-            </div>
-            <Filter filter_theme = {filter_theme}/>
-            <div>
-              <Options filterFunction={getNewData} loading={setIsLoading} setSelectValue={setSelectValue} selectValue={selectValue} />
-            </div>
+            </section>
+
+            <Filter filter_theme={filter_theme} />
+            <section>
+              <Options
+                filterFunction={getNewData}
+                loading={setIsLoading}
+                setSelectValue={setSelectValue}
+                selectValue={selectValue}
+              />
+            </section>
             <div>
               {review.map((data: any) => {
+
                 const reviewSettings = {
                   key: uuidv4(),
                   name: data.author.name,
@@ -125,7 +163,7 @@ function App() {
                 return <Review {...reviewSettings} />;
               })}
             </div>
-            <Pagination pagesAll ={pages} currentPage ={currentPage} setCurrentPage={setCurrentPage} filterFunction={getNewData} loading={setIsLoading} selectValue={selectValue} />
+            <LoadPages currentPage={currentPage} nextPage ={nextPage} selectValue = {selectValue} setCurrentPage={setCurrentPage} />
           </main>
         </div>
       </div>

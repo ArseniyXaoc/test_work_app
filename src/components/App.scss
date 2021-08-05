@@ -11,12 +11,13 @@ ul {
 .App {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  font: 'Arimo';
   text-align: center;
   display: flex;
   max-width: 100%;
   color: $mainText;
 }
+
+
 
 .App-header {
   background-color: $mainText;
@@ -29,23 +30,14 @@ ul {
   color: black;
 }
 
+.slick-prev:before {
+  color: black;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-.header {
-  justify-content: space-between;
-  display: flex;
-  flex: 1 1;
-  margin-top: 70px;
-  margin-bottom: 22px;
-
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-}
-
-  
-}
 
 .wrapper {
   width: 100vw;
@@ -54,12 +46,18 @@ ul {
   padding: 0 20px;
 }
 
-.wrapper1 {
+.sliderWrapper {
   position: relative;
-  width: 60vw;
+  width: 85vw;
   margin: 0 auto;
   max-width: 813px;
   margin-bottom: 23px;
+  @media (max-width: 768px) {
+    width: 80vw;
+  }
+  @media (max-width: 530px) {
+    width: 60vw;
+  }
 }
 
 .image {
@@ -73,14 +71,29 @@ ul {
   position: absolute;
 }
 
-.sand-photo{
+.sand-photo {
   position: absolute;
   min-width: 100px;
   height: 100px;
-  border: 1px solid;
+  border: 1px solid HSLA(0, 0%, 0%, 0.16);
   margin-right: 14px;
+  border-radius: 4px;
+  left: 0;
+  top: 0;
 }
 
-.slider-wrapper{
+.slick-next:before {
+  color: rgb(173, 173, 173) !important;
+  font-size: 43px !important;
+}
 
+
+
+.slider-wrapper{
+  padding-left: 112px;
+}
+
+.hidden {
+  width: 0px;
+  height: 0px;
 }

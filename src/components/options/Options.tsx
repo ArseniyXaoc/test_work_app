@@ -1,11 +1,14 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import './Options.scss'
 function Options({ filterFunction, loading, setSelectValue, selectValue }: { filterFunction: (page: string | undefined, sort: string) => void, 
     loading: React.Dispatch<React.SetStateAction<boolean>>,
     setSelectValue: React.Dispatch<React.SetStateAction<string>>,
     selectValue: string }) {
-
+    
     const stateRef = useRef('');
+    const [isChecked, setIsChecked] = useState(false);
+
+    
 
     const handler = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
         stateRef.current = event.target.value;
@@ -20,12 +23,16 @@ function Options({ filterFunction, loading, setSelectValue, selectValue }: { fil
             <form className='form' action="">
                 <p className='form-wrap'>
                     <select className='form-select' value={selectValue} onChange={handler}>
-                        <option value="helpfulness%3Adesc">полезные</option>
-                        <option value="created_at%3Adesc">новые</option>
-                        <option selected value="created_at%3Aasc">старые</option>
-                        <option selected value="rating%3Adesc">с высокой оценкой</option>
-                        <option selected value="rating%3Aasc">с низкой оценкой</option>
+                        <option value="helpfulness%3Adesc">Сначала полезные</option>
+                        <option value="created_at%3Adesc">Сначала новые</option>
+                        <option selected value="created_at%3Aasc">Сначала старые</option>
+                        <option selected value="rating%3Adesc">Сначала с высокой оценкой</option>
+                        <option selected value="rating%3Aasc">Сначала с низкой оценкой</option>
                     </select></p>
+                    <div className='checkBox'>
+                        <input type="checkbox" checked={isChecked} name="check" id="check" onChange = {(e) => {e.target.checked? setIsChecked(true): setIsChecked(false)}}/> 
+                        <label htmlFor="check">Только с фото</label>
+                    </div>
             </form>
         </div>
     )

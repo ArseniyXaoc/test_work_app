@@ -1,3 +1,5 @@
+import x from '../qwe'
+
 class FetchingData {
     url: string;
     authentication_token: string;
@@ -24,7 +26,7 @@ class FetchingData {
             if(!response.ok) throw new Error( String(response.status));
             let body = await response.json();
             return body
-            //return x;
+            // return x;
         } catch (error) {
             throw new Error(error);
         }

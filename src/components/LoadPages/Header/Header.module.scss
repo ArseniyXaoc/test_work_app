@@ -1,0 +1,40 @@
+.header {
+    justify-content: space-between;
+    display: flex;
+    flex: 1 1;
+    margin-top: 67px;
+    margin-bottom: 22px;
+  
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+.button {
+    background-color: #383737;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    padding: 10px 39px;
+    border-radius: 20px;
+    margin-right: 22px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    box-shadow: 0 1px #666;
+    margin-top: 3px;
+  
+  
+    &:hover {
+      background-color: rgb(109, 109, 109);
+    }
+  
+    &:active {
+      background-color: rgb(56, 55, 55);
+      box-shadow: 0 0px #666;
+      transform: translateY(1px);
+    }
+  
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+  }

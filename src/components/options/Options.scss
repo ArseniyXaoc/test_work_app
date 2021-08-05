@@ -1,13 +1,23 @@
 .form {
+    display: flex;
+    align-items: center;
     &-select {
         padding: 10px 10px;
+        margin-right: 27px;
       
     }
     &-wrap {
         margin: 0px;
+        margin-bottom: 23px;
         text-align: start;
         @media (max-width: 768px) {
             text-align: center;
         }
     }
+}
+
+.checkBox {
+    
+    margin-bottom: 23px;
+
 }

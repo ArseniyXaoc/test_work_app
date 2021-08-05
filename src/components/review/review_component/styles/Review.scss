@@ -56,9 +56,22 @@ $detailsColor: #7b7b7b;
         margin-bottom: 29px;
         flex-direction: column;
         text-align: left;
+        line-height: 1.5;
+        max-width: 759px;
 
         @media (max-width: 768px) {
             text-align: justify;
+        }
+    }
+
+    &-bottom {
+
+        display: flex;
+        color: #7b7b7b;
+        font-size: 12px;
+        justify-content: space-between;
+        @media (max-width: 400px) {
+            flex-direction: column;
         }
     }
 }
@@ -119,7 +132,6 @@ $detailsColor: #7b7b7b;
         border-radius: 48px;
         margin-top: 4px;
         padding: 18px 21px;
-        background-color: #ffe6e6;
         /* font-weight: bold; */
         margin-right: 8px;
         font-size: 14px;
@@ -170,4 +182,22 @@ $detailsColor: #7b7b7b;
     }
 }
 
+.verifed {
+    font-size: 10px;
+    background-color: HSLA(125, 100%, 50%, 0.1);
+    border-radius: 0,4,4,0;
+    margin-right: 4px;
+    margin-left: 8%;
+    @media (max-width: 450px) {
+        display: none;
+    }
+}
 
+.top {
+    font-size: 10px;
+    background-color: HSLA(43, 100%, 50%, 0.1);
+    border-radius: 0,4,4,0;
+    @media (max-width: 450px) {
+        display: none;
+    }
+}
