@@ -49,8 +49,8 @@ function Review(params: IReview) {
             </div>
           </div>
           <div style={{display: "flex"}}>
-            <div className="verifed">проверенный покупатель</div>
-            <div className="top">топ автор</div>
+            <div className="verifed">Проверенный покупатель</div>
+            <div className="top">Топ автор</div>
             <ReviewDate date={params.date} />
           </div>
         </div>

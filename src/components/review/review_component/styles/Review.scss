@@ -183,20 +183,29 @@ $detailsColor: #7b7b7b;
 }
 
 .verifed {
+    display: flex;
     font-size: 10px;
     background-color: HSLA(125, 100%, 50%, 0.1);
-    border-radius: 0,4,4,0;
-    margin-right: 4px;
+    border-radius: 4px;
+    margin-right: 2px;
     margin-left: 8%;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
     @media (max-width: 450px) {
         display: none;
     }
 }
 
 .top {
+    display: flex;
     font-size: 10px;
-    background-color: HSLA(43, 100%, 50%, 0.1);
-    border-radius: 0,4,4,0;
+    background-color: HSLA(125, 100%, 50%, 0.1);
+    border-radius: 4px;
+    margin-right: 11px;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 8px;
     @media (max-width: 450px) {
         display: none;
     }

@@ -8,10 +8,13 @@ interface IRaiting {
 
 function Raiting({ raiting_number, size_of_grade }: IRaiting) {
     const star = reitingToStar(raiting_number, size_of_grade);
+    const re =/\./gi
+
+    const raiting = String(raiting_number).replace(re,',');
     return (
         <section className='raiting'>
             <div className='raiting-wrapper'>
-                <div className='raiting-digits'>{raiting_number}</div>
+                <div className='raiting-digits'>{raiting}</div>
                 <div className='raiting-stars'>
                     {star.map((item, index) => <li key={index}>{item}</li>)}
                 </div>
